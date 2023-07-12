@@ -1,0 +1,17 @@
+
+<h2>Login</h2>
+<form [formGroup]="loginForm" (submit)="save()">
+<div>
+  <label for="username">
+    Email
+    <input type="email" name="email" formControlName="username" autocomplete="off">
+  </label>
+</div>
+<div>
+  <label for="password">
+    Password
+    <input type="password" name="password" formControlName="password" autocomplete="off">
+  </label>
+</div>
+<button type="submit"  [disabled]="loginForm.invalid">Login</button>
+</form>
