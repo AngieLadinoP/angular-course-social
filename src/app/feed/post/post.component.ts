@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '../../core/models/post';
+import { Post } from '../../core/models/post.model';
 
 @Component({
   selector: 'ngsocial-post',

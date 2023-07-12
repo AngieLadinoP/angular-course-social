@@ -1,9 +1,5 @@
-import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
 export abstract class StateService<T> {
   private state$: BehaviorSubject<T> | null = null;
 
