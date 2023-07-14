@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 import { CoreModule } from './core/core.module';
+import { AuthInterceptor } from './core/services/auth/auth.interceptor';
 
 const interceptors = [
   {

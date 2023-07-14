@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../core/services/auth/auth.service';
 import { User } from '../core/models/user.model';
 import { Subject, takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngsocial-login',
@@ -17,7 +18,7 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe();
@@ -35,6 +36,9 @@ export class LoginComponent {
     const userData = this.loginForm.value as User;
     this.authService
       .login(userData)
-      .subscribe(() => console.log('login successful'));
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: () => this.router.navigate(['/feed']),
+      });
   }
 }

@@ -8,14 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  public get userState(): UserStateService {
-    return this._userState;
-  }
-  public set userState(value: UserStateService) {
-    this._userState = value;
-  }
 
-  constructor(private http: HttpClient, private _userState: UserStateService) {}
+  constructor(private http: HttpClient, private userState: UserStateService) {}
 
   readonly basePath = environment.api;
 
